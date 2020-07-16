@@ -66,7 +66,7 @@ const HINSTANCE Window::WndClass::GetInstance() const noexcept
 
 bool Window::WndClass::SetInstance(_In_ HINSTANCE const& hInst)
 {
-	if (hInst == NULL)
+	if (hInst == nullptr)
 		throw Window::HRESULTException(__LOC__, GetLastError());
 	hInstance = hInst;
 }

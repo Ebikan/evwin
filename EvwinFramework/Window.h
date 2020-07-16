@@ -40,6 +40,10 @@ private:
 	public:
 		WndClass(_In_ HINSTANCE hInst, _In_ std::wstring className);
 		~WndClass();
+		WndClass(const WndClass&) = delete;
+		WndClass& operator=(const WndClass&) = delete;
+		WndClass(WndClass&&) = delete;
+		WndClass& operator=(WndClass&&) = delete;
 		_NODISCARD std::wstring const GetWndClassID() const noexcept;
 		_NODISCARD HINSTANCE const GetInstance() const noexcept;
 	private:
