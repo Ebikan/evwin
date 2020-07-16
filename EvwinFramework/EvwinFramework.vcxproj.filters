@@ -38,11 +38,17 @@
     <ClInclude Include="BaseException.h">
       <Filter>Header Files\Exception</Filter>
     </ClInclude>
-    <ClInclude Include="Window.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="Graphics.h">
-      <Filter>Source Files</Filter>
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Window.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MacroGfxException.h">
+      <Filter>Header Files\Exception</Filter>
+    </ClInclude>
+    <ClInclude Include="MacroWindException.h">
+      <Filter>Header Files\Exception</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

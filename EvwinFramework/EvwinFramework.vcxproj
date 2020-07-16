@@ -172,6 +172,8 @@
   <ItemGroup>
     <ClInclude Include="BaseException.h" />
     <ClInclude Include="Graphics.h" />
+    <ClInclude Include="MacroGfxException.h" />
+    <ClInclude Include="MacroWindException.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="Window.h" />
