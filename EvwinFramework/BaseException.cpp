@@ -17,16 +17,14 @@
 
 #include "BaseException.h"
 
-BaseException::BaseException() noexcept
+
+
+char const* BaseException::what() const noexcept
 {
+	return "Generic BaseException";
 }
 
-char const* BaseException::what() const
+char const* BaseException::description() const noexcept
 {
-	return nullptr;
-}
-
-char const* BaseException::description() const
-{
-	return nullptr;
+	return "A BaseException is being thrown";
 }

@@ -17,24 +17,48 @@
 
 
 class Window {
-public:
+protected:
 	class UnknownException : public BaseException {
-		_NODISCARD char const* what() const override;
-		_NODISCARD char const* description() const override;
+		_NODISCARD char const* what() const noexcept override;
+		_NODISCARD char const* description() const noexcept override;
 	};
 	class HRESULTException : public BaseException {
-		
-
+	public:
+		HRESULTException(
+			_In_ char const* file, 
+			_In_ unsigned int line,
+			_In_ HRESULT hr
+		) noexcept;
+		_NODISCARD char const* what() const noexcept override;
+		_NODISCARD char const* description() const noexcept override;
+	private:
+		HRESULT hr;
 	};
 
+private:
+	class WndClass {
+	public:
+		WndClass(_In_ HINSTANCE hInst, _In_ std::wstring className);
+		~WndClass();
+		_NODISCARD std::wstring const GetWndClassID() const noexcept;
+		_NODISCARD HINSTANCE const GetInstance() const noexcept;
+	private:
+		bool SetInstance(_In_ HINSTANCE const& hInst);
+		bool SetWndClassID(_In_ std::wstring const& atom);
+		static std::wstring WndClassID;
+		static HINSTANCE hInstance;
+	};
 
 public:
 
-	Window() noexcept;
-	~Window() noexcept;
+	Window(_In_ HINSTANCE hInst);
+	~Window() = default;
 	Window(const Window&) = delete;
 	Window& operator=(const Window&) = delete;
 	Window(Window&&) = delete;
 	Window& operator=(Window&&) = delete;
+
+private:
+	
 
 };
