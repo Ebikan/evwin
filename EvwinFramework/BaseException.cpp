@@ -27,10 +27,11 @@ char const* BaseException::what() const noexcept
 char const* BaseException::description() const noexcept
 {
 	std::ostringstream str;
-	str << "[Exception]"
-		<< "File: "
+	str << "[ERROR]\n"
+		<< "[File] "
 		<< fileName() << std::endl
-		<< "Line: " << lineNum()
+		<< "[Line] " << lineNum()
 		<< std::endl;
-	return str.str().c_str();
+	temp = str.str();
+	return temp.c_str();
 }

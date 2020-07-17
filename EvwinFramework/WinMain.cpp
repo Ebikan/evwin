@@ -12,7 +12,8 @@
 	email:	evie@eviebrown.com
 
 ******************************************************************************/
-
+#include "Window.h"
+#include <iostream>
 
 int CALLBACK WinMain(
 	_In_ HINSTANCE hInstance,
@@ -20,9 +21,12 @@ int CALLBACK WinMain(
 	_In_ LPSTR lpCmdLine,
 	_In_ int nShowCmd
 ) {
-
-
-
-
+	try {
+		throw Window::HRESULTException(__LOC__, ERROR_CHILD_NOT_COMPLETE);
+	}
+	catch (Window::HRESULTException e) {
+		OutputDebugStringA(e.what());
+		OutputDebugStringA( e.description());
+	}
 	return 0;
 }

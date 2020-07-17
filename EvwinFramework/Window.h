@@ -17,7 +17,7 @@
 
 
 class Window {
-protected:
+public:
 	class UnknownException : public BaseException {
 		_NODISCARD char const* what() const noexcept override;
 		_NODISCARD char const* description() const noexcept override;
