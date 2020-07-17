@@ -16,6 +16,7 @@
 
 
 #include "Window.h"
+#include <sstream>
 
 std::wstring Window::WndClass::WndClassID;
 HINSTANCE Window::WndClass::hInstance = nullptr;
@@ -94,7 +95,19 @@ char const* Window::HRESULTException::what() const noexcept
 
 char const* Window::HRESULTException::description() const noexcept
 {
+
+	std::ostringstream oss;
+	oss << BaseException::description();
+	oss << "[HRESULT]" << hr << std::endl;
+	oss << "[Description]" << TranslateErrorCode();
+
+	
 	return nullptr;
+}
+
+std::string Window::HRESULTException::TranslateErrorCode() const
+{
+	return std::string("HOHOHO\n");
 }
 
 char const* Window::UnknownException::what() const noexcept

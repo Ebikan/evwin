@@ -16,15 +16,21 @@
 
 
 #include "BaseException.h"
-
+#include <sstream>
 
 
 char const* BaseException::what() const noexcept
 {
-	return "Generic BaseException";
+	return "BaseException";
 }
 
 char const* BaseException::description() const noexcept
 {
-	return "A BaseException is being thrown";
+	std::ostringstream str;
+	str << "[Exception]"
+		<< "File: "
+		<< fileName() << std::endl
+		<< "Line: " << lineNum()
+		<< std::endl;
+	return str.str().c_str();
 }
