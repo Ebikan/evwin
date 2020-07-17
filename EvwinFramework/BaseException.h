@@ -24,12 +24,16 @@ public:
 
 	// Use __LOC__ as the parameter to exceptions.
 	BaseException(_In_ char const* file, _In_ unsigned int line) noexcept : file(file), line(line) {};
+
+	
 	_NODISCARD char const* what() const noexcept override;
 	_NODISCARD virtual char const* description() const noexcept;
-	_NODISCARD char const* fileName() const noexcept { return file; };
-	_NODISCARD int lineNum() const noexcept { return line; };
 
 protected:
+
+	_NODISCARD char const* fileName() const noexcept { return file; };
+	_NODISCARD int lineNum() const noexcept { return line; };
+	
 	mutable std::string temp;
 
 private:

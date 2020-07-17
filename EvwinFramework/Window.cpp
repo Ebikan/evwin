@@ -16,6 +16,7 @@
 
 
 #include "Window.h"
+#include <sstream>
 
 std::wstring Window::WndClass::WndClassID;
 HINSTANCE Window::WndClass::hInstance = nullptr;
@@ -89,12 +90,24 @@ Window::HRESULTException::HRESULTException(
 
 char const* Window::HRESULTException::what() const noexcept
 {
-	return nullptr;
+	return "Window -> HRESULT Exception\n";
 }
 
 char const* Window::HRESULTException::description() const noexcept
 {
-	return nullptr;
+
+	std::ostringstream oss;
+	oss << BaseException::description();
+	oss << "[HRESULT] 0x" << std::hex << hr <<  std::endl;
+	oss << "[Description] " << TranslateErrorCode();
+
+	temp = oss.str();
+	return temp.c_str();
+}
+
+std::string Window::HRESULTException::TranslateErrorCode() const
+{
+	return std::string("Requires functioning window first!\n");
 }
 
 char const* Window::UnknownException::what() const noexcept
