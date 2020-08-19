@@ -22,7 +22,7 @@ int CALLBACK WinMain(
 	_In_ int nShowCmd
 ) {
 	try {
-		throw Window::HRESULTException(__LOC__, ERROR_CHILD_NOT_COMPLETE);
+		throw Window::HRESULTException(__LOC__, ERROR_WAIT_NO_CHILDREN);
 	}
 	catch (Window::HRESULTException e) {
 		OutputDebugStringA(e.what());

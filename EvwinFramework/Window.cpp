@@ -29,6 +29,9 @@ Window::Window(_In_ HINSTANCE hInst) {
 
 
 Window::WndClass::WndClass(_In_ HINSTANCE hInst, _In_ std::wstring className) {
+
+	
+
 	WNDCLASSEX info = {};
 	info.cbSize = sizeof(WNDCLASSEX);
 	info.style = CS_HREDRAW | CS_OWNDC;
@@ -41,6 +44,8 @@ Window::WndClass::WndClass(_In_ HINSTANCE hInst, _In_ std::wstring className) {
 	info.hbrBackground = nullptr;
 	info.lpszMenuName = nullptr;
 	info.lpszClassName = className.c_str();
+
+
 
 
 	ATOM const atom = RegisterClassEx(&info);

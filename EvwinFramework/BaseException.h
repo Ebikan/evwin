@@ -27,10 +27,9 @@ public:
 
 	
 	_NODISCARD char const* what() const noexcept override;
-	_NODISCARD virtual char const* description() const noexcept;
+	_NODISCARD virtual char const* description() const noexcept ;
 
 protected:
-
 	_NODISCARD char const* fileName() const noexcept { return file; };
 	_NODISCARD int lineNum() const noexcept { return line; };
 	

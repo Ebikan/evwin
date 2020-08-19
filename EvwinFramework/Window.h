@@ -19,6 +19,7 @@
 class Window {
 public:
 	class UnknownException : public BaseException {
+		using BaseException::BaseException;
 		_NODISCARD char const* what() const noexcept override;
 		_NODISCARD char const* description() const noexcept override;
 	};
